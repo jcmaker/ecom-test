@@ -1,7 +1,13 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isMockMode } from "@/lib/mock-supabase";
 
 export async function proxy(request: NextRequest) {
+  // In demo/mock mode, bypass all auth checks
+  if (isMockMode) {
+    return NextResponse.next({ request });
+  }
+
   let supabaseResponse = NextResponse.next({
     request,
   });

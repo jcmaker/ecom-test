@@ -83,7 +83,7 @@ export default async function AdminOrderDetailPage({ params }: OrderDetailPagePr
         </CardHeader>
         <CardContent>
           <div className="divide-y divide-border">
-            {(items ?? []).map((item) => (
+            {(items ?? []).map((item: { id: string; product_name: string; unit_price: number; quantity: number; subtotal: number }) => (
               <div key={item.id} className="py-3 flex items-center justify-between">
                 <div>
                   <p className="font-medium">{item.product_name}</p>

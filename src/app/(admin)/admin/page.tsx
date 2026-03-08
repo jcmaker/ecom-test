@@ -36,7 +36,7 @@ export default async function AdminDashboardPage() {
   ]);
 
   const totalRevenue =
-    revenueData?.reduce((sum, o) => sum + o.total_amount, 0) ?? 0;
+    revenueData?.reduce((sum: number, o: { total_amount: number }) => sum + o.total_amount, 0) ?? 0;
 
   return (
     <div className="space-y-8">
